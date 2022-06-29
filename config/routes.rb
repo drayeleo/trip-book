@@ -6,4 +6,11 @@ Rails.application.routes.draw do
 
   # route to test your configuration
   get "/hello", to: "application#hello_world"
+
+  # ^^^ Define all API routes above ^^^
+
+  # direct all non-backend routes to index.html
+  get "*path",
+      to: "fallback#index",
+      constraints: ->(req) { !req.xhr? && req.format.html? }
 end
