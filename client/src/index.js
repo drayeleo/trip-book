@@ -17,6 +17,7 @@ root.render(
           <Route path="new-trip" element={<NewTrip />} />
           <Route path="my-trips" element={<MyTrips />} />
           <Route path="my-profile" element={<MyProfile />} />
+          <Route path="*" element={<p>There's nothing here!</p>} />
         </Route>
       </Routes>
     </BrowserRouter>

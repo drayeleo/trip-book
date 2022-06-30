@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState, useEffect } from "react";
 import Header from "./components/header";
 import { Outlet } from "react-router-dom";
