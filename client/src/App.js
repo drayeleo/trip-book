@@ -1,50 +1,39 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./components/header";
-import { Outlet } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0);
+export default function App() {
+  let navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [sessionCheckComplete, setSessionCheckComplete] = useState(false);
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => {
+          setUser(user);
+          setSessionCheckComplete(true);
+        });
+      } else {
+        setSessionCheckComplete(true);
+      }
+    });
   }, []);
 
-  return (
-    <div className="App">
-      <Header />
-      <Outlet />
-      <h1>Page Count: {count}</h1>
-    </div>
-  );
+  function onLogout() {
+    setUser(null);
+    navigate("/");
+  }
+
+  if (sessionCheckComplete) {
+    return (
+      <div className="App">
+        <Header onLogout={onLogout} user={user} />
+        <Outlet context={[user, setUser]} />
+      </div>
+    );
+  } else {
+    return <p>Loading</p>; //maybe want to change this so header and background will at least load in the meantime
+  }
 }
-
-export default App;
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

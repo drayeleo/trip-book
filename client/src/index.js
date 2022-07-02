@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import LandingPage from "./components/landingPage";
 import NewTrip from "./components/newTrip";
 import MyTrips from "./components/myTrips";
-import MyProfile from "./components/myProfile";
+import UserProfile from "./components/userProfile";
 import LoginPage from "./components/loginPage";
+import SignupPage from "./components/signupPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,10 +18,12 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="signup" element={<SignupPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="user-profile" element={<UserProfile />} />
           <Route path="new-trip" element={<NewTrip />} />
           <Route path="my-trips" element={<MyTrips />} />
-          <Route path="my-profile" element={<MyProfile />} />
-          <Route path="login" element={<LoginPage />} />
           <Route path="*" element={<p>There's nothing here!</p>} />
         </Route>
       </Routes>

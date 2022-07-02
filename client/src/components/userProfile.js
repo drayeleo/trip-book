@@ -1,4 +1,4 @@
-export default function MyProfile() {
+export default function UserProfile() {
   return (
     <div>
       <h1>My Profile</h1>
