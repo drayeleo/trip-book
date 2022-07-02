@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewTrip from "./components/newTrip";
 import MyTrips from "./components/myTrips";
 import MyProfile from "./components/myProfile";
+import LoginPage from "./components/loginPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
           <Route path="new-trip" element={<NewTrip />} />
           <Route path="my-trips" element={<MyTrips />} />
           <Route path="my-profile" element={<MyProfile />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="*" element={<p>There's nothing here!</p>} />
         </Route>
       </Routes>
