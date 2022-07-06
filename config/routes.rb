@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  post "/user-image", to: "users#add_images"
+
   # ^^^ Define all API routes above ^^^
 
   # direct all non-backend routes to index.html
   get "*path",
       to: "fallback#index",
-      constraints: ->(req) { !req.xhr? && req.format.html? }
+      constraints: ->(req) { !req.xhr? && req.format.html? && req.path.exclude?('rails/active_storage')}
 end
