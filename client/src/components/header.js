@@ -13,7 +13,7 @@ export default function Header({ onLogout, user }) {
         {user ? (
           <>
             <Link to="/new-trip">New Trip</Link> |{" "}
-            <Link to="/my-trips">My Trips</Link> |{" "}
+            <Link to="/trips">My Trips</Link> |{" "}
             <Link to="/my-profile">My Profile</Link> |{" "}
             <button onClick={handleLogout}>Logout</button>
           </>

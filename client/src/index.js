@@ -7,10 +7,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./components/landingPage";
 import NewTrip from "./components/newTrip";
-import MyTrips from "./components/myTrips";
+import Trips from "./components/trips";
+import Trip from "./components/trip";
 import UserProfile from "./components/userProfile";
 import LoginPage from "./components/loginPage";
 import SignupPage from "./components/signupPage";
+import EditTrip from "./components/editTrip";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,7 +25,9 @@ root.render(
           <Route path="login" element={<LoginPage />} />
           <Route path="user-profile" element={<UserProfile />} />
           <Route path="new-trip" element={<NewTrip />} />
-          <Route path="my-trips" element={<MyTrips />} />
+          <Route path="trips" element={<Trips />} />
+          <Route path="trips/:tripId" element={<Trip />} />
+          <Route path="trips/:tripId/edit" element={<EditTrip />} />
           <Route path="*" element={<p>There's nothing here!</p>} />
         </Route>
       </Routes>

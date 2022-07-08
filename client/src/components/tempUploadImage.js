@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const UploadAndDisplayImage = () => {
+export default function TempUploadImage() {
+  let params = useParams();
+
   const [selectedImages, setSelectedImages] = useState([]);
 
   function displayUploadedImage() {
@@ -49,7 +52,7 @@ const UploadAndDisplayImage = () => {
     }
     // console.log(formData.values);
 
-    fetch("/user-image", {
+    fetch(`/trips/${params.tripId}/add-images`, {
       method: "POST",
       body: formData,
       // headers: {
@@ -86,6 +89,4 @@ const UploadAndDisplayImage = () => {
       <button onClick={handlePhotoSubmit}>Submit</button>
     </div>
   );
-};
-
-export default UploadAndDisplayImage;
+}

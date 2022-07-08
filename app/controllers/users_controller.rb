@@ -22,16 +22,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_images
-    puts "made contact with users_controller"
-    user = User.find_by(id: session[:user_id])
-    user.images.attach(params[:images])
-   # params[:images].each do |i|
-    #  user.locations.create(image: i)
+  # def add_images
+  #   puts "made contact with users_controller"
+  #   user = User.find_by(id: session[:user_id])
+  #   user.images.attach(params[:images])
+  #  # params[:images].each do |i|
+  #   #  user.locations.create(image: i)
 
-    # @user.images.attach(params[:images])
+  #   # @user.images.attach(params[:images])
     
-  end
+  # end
 
   private
 

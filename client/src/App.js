@@ -13,11 +13,9 @@ export default function App() {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user);
-          setSessionCheckComplete(true);
         });
-      } else {
-        setSessionCheckComplete(true);
       }
+      setSessionCheckComplete(true);
     });
   }, []);
 

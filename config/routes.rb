@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trips
   resources :users, only: %i[show create update]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   post "/user-image", to: "users#add_images"
+
+  post "/trips/:id/add-images", to: "trips#add_images"
+
 
   # ^^^ Define all API routes above ^^^
 
