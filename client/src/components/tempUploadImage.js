@@ -1,33 +1,28 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+// import exifr from "exifr";
+
+import ImageCard from "./imageCard";
 
 export default function TempUploadImage() {
   let params = useParams();
+  let navigate = useNavigate();
 
   const [selectedImages, setSelectedImages] = useState([]);
 
   function displayUploadedImage() {
     if (selectedImages[0]) {
-      // debugger;
+      console.log("selectedImages: ", selectedImages);
+
       return selectedImages.map((image, index) => {
+        // console.log(exifr.gps(image));
         return (
-          <div key={index}>
-            <img
-              alt="not found"
-              width={"250px"}
-              src={URL.createObjectURL(image)}
-            />
-            <br />
-            <button
-              onClick={() =>
-                setSelectedImages((selectedImages) => {
-                  return selectedImages.filter((_, i) => i !== index);
-                })
-              }
-            >
-              Remove
-            </button>
-          </div>
+          <ImageCard
+            key={index}
+            image={image}
+            index={index}
+            setSelectedImages={setSelectedImages}
+          />
         );
       });
     } else {
@@ -62,6 +57,7 @@ export default function TempUploadImage() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        navigate("/trips/" + params.tripId);
       })
       .catch((error) => console.log({ error: error }));
   }

@@ -1,17 +1,32 @@
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Trips() {
   let navigate = useNavigate();
 
-  const [user, setUser] = useOutletContext();
+  const [trips, setTrips] = useState();
+
+  useEffect(() => {
+    fetch("/trips").then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setTrips(data);
+          console.log(data);
+        });
+      } else {
+        res.json().then((json) => {
+          console.log("error: ", json.error);
+        });
+      }
+    });
+  }, []);
 
   function handleViewTrip(tripId) {
     navigate("/trips/" + tripId);
   }
 
   function renderTrips() {
-    return user.trips.map((trip) => {
-      // console.log(trip);
+    return trips.map((trip) => {
       return (
         <div key={trip.id}>
           <h2>{trip.trip_name}</h2>
@@ -25,7 +40,7 @@ export default function Trips() {
   return (
     <div>
       <h1>My Trips</h1>
-      {user ? renderTrips() : null}
+      {trips ? renderTrips() : null}
     </div>
   );
 }

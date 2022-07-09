@@ -1,3 +1,5 @@
+// delete this and switch to tempUploadImage once that's ready
+
 import React, { useState } from "react";
 
 const UploadAndDisplayImage = () => {

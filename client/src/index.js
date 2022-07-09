@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import exifr from "exifr";
 
 import LandingPage from "./components/landingPage";
 import NewTrip from "./components/newTrip";

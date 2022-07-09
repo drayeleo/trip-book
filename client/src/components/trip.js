@@ -1,4 +1,4 @@
-import { useParams, useOutletContext, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Trip() {
@@ -6,6 +6,7 @@ export default function Trip() {
   let navigate = useNavigate();
 
   const [trip, setTrip] = useState();
+  console.log(trip);
 
   useEffect(() => {
     fetch(`/trips/${params.tripId}`)
@@ -17,8 +18,15 @@ export default function Trip() {
   }, []);
 
   function renderImages() {
-    return trip.image_urls.map((imageUrl) => {
-      return <img key={imageUrl} width={"250px"} src={imageUrl} alt="none" />;
+    return trip.image_data.map((imageDatum) => {
+      return (
+        <img
+          key={imageDatum.image_url}
+          width={"250px"}
+          src={imageDatum.image_url}
+          alt="none"
+        />
+      );
     });
   }
 
