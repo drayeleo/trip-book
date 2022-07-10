@@ -6,9 +6,6 @@ export default function ImageCard({ image, index, setSelectedImages }) {
 
   useEffect(() => {
     const getImageCoords = async () => {
-      // debugger;
-      // const response = await exifr.gps(image);
-      // const coords = await response.json;
       let coords = await exifr.gps(image);
       setCoords(coords);
     };

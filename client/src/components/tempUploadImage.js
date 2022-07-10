@@ -38,16 +38,20 @@ export default function TempUploadImage() {
     // ^ this puts image files in formData as batch - unclear whether that will be ok for sending/backend
     //   can always use below method instead, to make individual key value pairs in formData for each file
 
-    selectedImages.forEach((image, index) =>
-      formData.append(`images[]`, image)
-    );
+    selectedImages.forEach((image, index) => {
+      // formData.append(`images[]`, image);
+      formData.append(`${index} file`, image);
+      formData.append(`${index} lat`, 9984);
+      formData.append(`${index} long`, 654313);
+    });
 
-    for (const value of formData.values()) {
+    for (const value of formData.entries()) {
       console.log(value);
     }
     // console.log(formData.values);
 
-    fetch(`/trips/${params.tripId}/add-images`, {
+    // fetch(`/trips/${params.tripId}/add-images`, {
+    fetch(`/trips/${params.tripId}/add-locations`, {
       method: "POST",
       body: formData,
       // headers: {
@@ -57,7 +61,7 @@ export default function TempUploadImage() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        navigate("/trips/" + params.tripId);
+        // navigate("/trips/" + params.tripId);
       })
       .catch((error) => console.log({ error: error }));
   }
@@ -74,7 +78,7 @@ export default function TempUploadImage() {
         name="myImage"
         multiple
         onChange={(event) => {
-          console.log(event.target.files);
+          // console.log(event.target.files);
           setSelectedImages(Array.from(event.target.files));
           console.log(Array.from(event.target.files));
         }}

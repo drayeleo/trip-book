@@ -1,13 +1,23 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  has_many :locations
 
   validates :trip_name, presence: true
 
   has_many_attached :images #, service: :s3
 
-  def image_urls
+  def image_data
     images.map do |image|
-      Rails.application.routes.url_helpers.rails_blob_path(image, only_path: true)
+      image_data = {
+        image_url:
+          Rails.application.routes.url_helpers.rails_blob_path(
+            image,
+            only_path: true
+          ),
+        image_id: image.id
+      }
+
+      # debugger
     end
   end
 end

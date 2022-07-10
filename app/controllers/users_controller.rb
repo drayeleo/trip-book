@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     else
       render json: { error: "Not authorized" }, status: :unauthorized
     end
-    
   end
 
   def create
@@ -22,17 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def add_images
-  #   puts "made contact with users_controller"
-  #   user = User.find_by(id: session[:user_id])
-  #   user.images.attach(params[:images])
-  #  # params[:images].each do |i|
-  #   #  user.locations.create(image: i)
-
-  #   # @user.images.attach(params[:images])
-    
-  # end
-
   private
 
   def user_params
@@ -41,8 +29,7 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :first_name,
-      :last_name,
-      # images: []
+      :last_name
     )
   end
 end
