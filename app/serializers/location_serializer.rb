@@ -1,3 +1,3 @@
 class LocationSerializer < ActiveModel::Serializer
-  attributes :id, :trip_id, :photo_id, :latitude, :longitude
+  attributes :id, :trip_id, :photo_id, :latitude, :longitude, :image_data
 end

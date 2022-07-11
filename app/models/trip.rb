@@ -7,6 +7,7 @@ class Trip < ApplicationRecord
   has_many_attached :images #, service: :s3
 
   def image_data
+    # debugger
     images.map do |image|
       image_data = {
         image_url:

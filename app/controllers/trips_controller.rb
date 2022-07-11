@@ -43,6 +43,7 @@ class TripsController < ApplicationController
           )
         location.image.attach(params[:"#{i} file"])
         puts location
+        debugger
       end
     end
 
