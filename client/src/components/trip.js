@@ -50,7 +50,7 @@ export default function Trip() {
         </button>
         {renderImages()}
         <MapContainer
-          center={[51.505, -0.09]}
+          center={[35.912417999999995, -81.886177]}
           zoom={13}
           scrollWheelZoom={false}
         >

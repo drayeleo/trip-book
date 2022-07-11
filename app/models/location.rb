@@ -13,6 +13,8 @@ class Location < ApplicationRecord
           only_path: true
         ),
       image_id: image.id
+      # -> could probably delete image_id since that's not how I'm associating location with image any more
+      # -> also, may be able to just use image.url instead of Rails.application.routes.url_helpers.rails_blob_path. Try it out once everything else is working?
     }
 
     # images.map do |image|

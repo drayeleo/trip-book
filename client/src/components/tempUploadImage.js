@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-// import exifr from "exifr";
+import exifr from "exifr";
 
 import ImageCard from "./imageCard";
 
@@ -9,17 +9,89 @@ export default function TempUploadImage() {
   let navigate = useNavigate();
 
   const [selectedImages, setSelectedImages] = useState([]);
+  const [coords, setCoords] = useState([]);
+
+  // console.log("selectedImages: ", selectedImages);
+  console.log("coords: ", coords);
+
+  // const getCoords = async () => {
+  //   const unresolvedPromises = selectedImages.map(image => calc(n));
+  //   const results = await Promise.all(unresolvedPromises);
+  // };
+
+  // useEffect(() => {
+  //   const unresolvedPromises = selectedImages.map((image) => {
+  //     const getImageCoords = async () => {
+  //       let coords = await exifr.gps(image);
+  //       // setCoords(coords);
+  //       return coords;
+  //     };
+  //     return getImageCoords();
+  //   });
+  //   const results = await Promise.all(unresolvedPromises);
+  //   // setCoords(results)
+  // }, [selectedImages]);
+
+  const handleSelectPhotos = async (event) => {
+    // can I be sure these will be in same order as photos?
+    // ^ there may be a better way to put coords and selectedImages in same array of objects so they're explicitly correctly paired
+
+    const imgArray = Array.from(event.target.files);
+
+    const unresolvedPromises = imgArray.map((image) => exifr.gps(image));
+    // debugger;
+    const results = await Promise.all(unresolvedPromises);
+    setCoords(results);
+    setSelectedImages(imgArray);
+
+    // console.log("results: ", results);
+  };
+
+  // function handleSelectPhotos(event) {
+  //   const imgArray = Array.from(event.target.files);
+
+  //   let coordsArr = [];
+
+  //   imgArray.forEach((image) => {
+  //     exifr.gps(image).then((result) => {
+  //       console.log(result)
+
+  //     });
+  //   });
+  // }
+
+  // function handleSelectPhotos(event) {
+  //   const imgArray = Array.from(event.target.files);
+
+  //   let coordsArr = [];
+
+  //   imgArray.forEach((image) => {
+  //     exifr.gps(image).then((result) => console.log(result));
+  //   });
+  // }
+
+  // const handleSelectPhotos = async (event) => {
+  //   const getImageCoords = async (image) => {
+  //     return await exifr.gps(image);
+  //   };
+
+  //   const imgArray = Array.from(event.target.files);
+  //   const unresolvedPromises = imgArray.map((image) => {
+  //     return { imageFile: image, coordinates: getImageCoords(image) };
+  //   });
+  //   const results = await Promise.all(unresolvedPromises);
+  //   setCoords(results);
+  // };
 
   function displayUploadedImage() {
     if (selectedImages[0]) {
-      console.log("selectedImages: ", selectedImages);
-
       return selectedImages.map((image, index) => {
         // console.log(exifr.gps(image));
         return (
           <ImageCard
             key={index}
             image={image}
+            coords={coords[index]}
             index={index}
             setSelectedImages={setSelectedImages}
           />
@@ -41,8 +113,8 @@ export default function TempUploadImage() {
     selectedImages.forEach((image, index) => {
       // formData.append(`images[]`, image);
       formData.append(`${index} file`, image);
-      formData.append(`${index} lat`, 9984);
-      formData.append(`${index} long`, 654313);
+      formData.append(`${index} lat`, coords[index].latitude);
+      formData.append(`${index} long`, coords[index].longitude);
     });
 
     for (const value of formData.entries()) {
@@ -78,9 +150,10 @@ export default function TempUploadImage() {
         name="myImage"
         multiple
         onChange={(event) => {
-          // console.log(event.target.files);
-          setSelectedImages(Array.from(event.target.files));
-          console.log(Array.from(event.target.files));
+          handleSelectPhotos(event);
+          // let imgArray = Array.from(event.target.files);
+          // setSelectedImages(imgArray);
+          // console.log("imgArray from input: ", imgArray);
         }}
       />
       <br />

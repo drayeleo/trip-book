@@ -42,8 +42,8 @@ class TripsController < ApplicationController
             trip: Trip.find_by(id: params[:trip_id])
           )
         location.image.attach(params[:"#{i} file"])
-        puts location
-        debugger
+        # puts location
+        # debugger
       end
     end
 

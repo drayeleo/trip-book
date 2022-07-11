@@ -1,16 +1,18 @@
 import exifr from "exifr";
 import { useEffect, useState } from "react";
 
-export default function ImageCard({ image, index, setSelectedImages }) {
-  const [coords, setCoords] = useState({ latitude: "", longitude: "" });
+export default function ImageCard({ image, coords, index, setSelectedImages }) {
+  // const [coords, setCoords] = useState({ latitude: "", longitude: "" });
 
-  useEffect(() => {
-    const getImageCoords = async () => {
-      let coords = await exifr.gps(image);
-      setCoords(coords);
-    };
-    getImageCoords();
-  }, []);
+  // console.log("coords in imageCard: ", coords);
+
+  // useEffect(() => {
+  //   const getImageCoords = async () => {
+  //     let coords = await exifr.gps(image);
+  //     setCoords(coords);
+  //   };
+  //   getImageCoords();
+  // }, []);
 
   return (
     <div key={index}>
