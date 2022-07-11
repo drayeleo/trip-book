@@ -1,7 +1,13 @@
 import exifr from "exifr";
 import { useEffect, useState } from "react";
 
-export default function ImageCard({ image, coords, index, setSelectedImages }) {
+export default function ImageCard({
+  image,
+  latitude,
+  longitude,
+  index,
+  setSelectedImages,
+}) {
   // const [coords, setCoords] = useState({ latitude: "", longitude: "" });
 
   // console.log("coords in imageCard: ", coords);
@@ -18,7 +24,7 @@ export default function ImageCard({ image, coords, index, setSelectedImages }) {
     <div key={index}>
       <img alt="not found" width={"250px"} src={URL.createObjectURL(image)} />
       <br />
-      <p>Coordinates: {`${coords.latitude}, ${coords.longitude}`}</p>
+      <p>Coordinates: {`${latitude}, ${longitude}`}</p>
       <button
         onClick={() =>
           setSelectedImages((selectedImages) => {

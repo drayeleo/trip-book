@@ -34,6 +34,7 @@ class TripsController < ApplicationController
         i = key.split[0]
         lat = params[:"#{i} lat"]
         long = params[:"#{i} long"]
+        # loop through params[:images], each |image| image[:file], image[:latitude]
 
         location =
           Location.create!(
