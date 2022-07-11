@@ -21,23 +21,28 @@ export default function Trip() {
   }, []);
 
   function renderImages() {
-    return trip.image_data.map((imageDatum) => {
+    return trip.locations.map((location) => {
       return (
-        <>
-          <img
-            key={imageDatum.image_url}
-            width={"250px"}
-            src={imageDatum.image_url}
-            alt="none"
-          />
-        </>
+        <img
+          key={location.image_url}
+          width={"250px"}
+          src={location.image_url}
+          alt="none"
+        />
       );
     });
   }
 
   function renderMarkers() {
-    return trip.image_data.map((imageDatum) => {
-      return <ImageMarker url={imageDatum.image_url} />;
+    return trip.locations.map((location) => {
+      return (
+        <ImageMarker
+          key={location.id}
+          url={location.image_url}
+          latitude={location.latitude}
+          longitude={location.longitude}
+        />
+      );
     });
   }
 
@@ -48,7 +53,7 @@ export default function Trip() {
         <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
           Edit Trip
         </button>
-        {renderImages()}
+        {/* {renderImages()} */}
         <MapContainer
           center={[35.912417999999995, -81.886177]}
           zoom={13}
