@@ -17,11 +17,11 @@ class TripsController < ApplicationController
     render json: trip
   end
 
-  def add_images
-    trip = Trip.find_by(id: params[:id])
-    trip.images.attach(params[:images])
-    render json: trip, status: :accepted
-  end
+  # def add_images
+  #   trip = Trip.find_by(id: params[:id])
+  #   trip.images.attach(params[:images])
+  #   render json: trip, status: :accepted
+  # end
 
   def add_locations
     trip = Trip.find_by(id: params[:trip_id])

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # post "/user-image", to: "users#add_images"
 
-  post "/trips/:id/add-images", to: "trips#add_images"
+  # post "/trips/:id/add-images", to: "trips#add_images"
 
   post "/trips/:trip_id/add-locations", to: "trips#add_locations"
 
