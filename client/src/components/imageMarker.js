@@ -22,7 +22,7 @@ export default function ImageMarker({ url, latitude, longitude }) {
       <Marker position={[latitude, longitude]}>
         <Popup>
           {/* A pretty CSS3 popup. <br /> Easily customizable. */}
-          <img src={url} alt={"none"} width={"150px"} />
+          <img src={url} alt={"none"} width={"300px"} />
         </Popup>
       </Marker>
     </div>

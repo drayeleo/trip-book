@@ -65,7 +65,11 @@ export default function Trip() {
         </button>
         {/* {renderImages()} */}
         {trip ? (
-          <MapContainer bounds={getCoords()} scrollWheelZoom={true}>
+          <MapContainer
+            bounds={getCoords()}
+            scrollWheelZoom={true}
+            boundsOptions={{ padding: [50, 50] }}
+          >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
