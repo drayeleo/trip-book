@@ -26,7 +26,7 @@ export default function TempUploadImage() {
       return { ...image, ...locationData };
     });
 
-    console.log(unresolvedPromises);
+    // console.log(unresolvedPromises);
 
     const results = await Promise.all(unresolvedPromises);
     // setCoords(results);
@@ -65,10 +65,15 @@ export default function TempUploadImage() {
       formData.append(`${index} lat`, image.latitude);
       formData.append(`${index} long`, image.longitude);
     });
+
     // potential different setup to generate single object with file, lat, and long
     // (see commented code in trips_controller.rb for pseudocode of backend processing):
-    // formData.append('images[][file]', )
+    // formData.append(`images[${index}][file]`, )
+    // formData.append(`images[${index}][lat]`, )
+    // formData.append(`images[${index}][long]`, )
     // ^ might have to actually put indexes in the empty brackets after image
+    // should generate a single object for each image, similar to the frontend format.
+    // this would allow for simpler code in trips_controller.rb but might require some finagling
 
     for (const value of formData.entries()) {
       console.log(value);

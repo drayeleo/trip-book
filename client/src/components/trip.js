@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 import ImageMarker from "./imageMarker";
 
@@ -11,6 +11,7 @@ export default function Trip() {
   const [trip, setTrip] = useState();
   console.log(trip);
 
+  // fetch specified trip, including image urls and coordinates
   useEffect(() => {
     fetch(`/trips/${params.tripId}`)
       .then((response) => response.json())
@@ -19,6 +20,14 @@ export default function Trip() {
         console.error("Error:", error);
       });
   }, []);
+
+  // generate an array of just coordinates to feed into the "bounds" attribute for MapContainer
+  function getCoords() {
+    return trip.locations.map((location) => [
+      location.latitude,
+      location.longitude,
+    ]);
+  }
 
   function renderImages() {
     return trip.locations.map((location) => {
@@ -33,6 +42,7 @@ export default function Trip() {
     });
   }
 
+  // render one marker for each image in "trips"
   function renderMarkers() {
     return trip.locations.map((location) => {
       return (
@@ -54,17 +64,15 @@ export default function Trip() {
           Edit Trip
         </button>
         {/* {renderImages()} */}
-        <MapContainer
-          center={[35.912417999999995, -81.886177]}
-          zoom={13}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {renderMarkers()}
-        </MapContainer>
+        {trip ? (
+          <MapContainer bounds={getCoords()} scrollWheelZoom={true}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {renderMarkers()}
+          </MapContainer>
+        ) : null}
       </div>
     );
   }
