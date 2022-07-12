@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import MarkerClusterGroup from "@changey/react-leaflet-markercluster";
+// import "react-leaflet-markercluster/dist/styles.min.css";
 
 import ImageMarker from "./imageMarker";
 
@@ -58,7 +60,7 @@ export default function Trip() {
 
   if (trip) {
     return (
-      <div>
+      <div id="trip">
         <h2>{trip.trip_name}</h2>
         <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
           Edit Trip
@@ -105,7 +107,8 @@ export default function Trip() {
                 />
               </LayersControl.BaseLayer>
             </LayersControl>
-            {renderMarkers()}
+            <MarkerClusterGroup>{renderMarkers()}</MarkerClusterGroup>
+            {/* {renderMarkers()} */}
           </MapContainer>
         ) : null}
       </div>
