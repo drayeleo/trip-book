@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   validates :username, uniqueness: true
 
-  has_many :trips
-  
+  has_many :trips, dependent: :destroy
+
   has_secure_password
 
   # has_many_attached :images #, service: :s3
