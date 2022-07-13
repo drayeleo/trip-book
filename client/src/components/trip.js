@@ -25,10 +25,20 @@ export default function Trip() {
 
   // generate an array of just coordinates to feed into the "bounds" attribute for MapContainer
   function getCoords() {
-    return trip.locations.map((location) => [
-      location.latitude,
-      location.longitude,
-    ]);
+    console.log("getCoords: ", trip);
+    if (trip.locations[0]) {
+      console.log("tryna return nonexistent coords");
+      return trip.locations.map((location) => [
+        location.latitude,
+        location.longitude,
+      ]);
+    } else {
+      console.log("returning generic coords");
+      return [
+        [47.401028, -67.584289],
+        [24.35424, -129.902779],
+      ];
+    }
   }
 
   function renderImages() {

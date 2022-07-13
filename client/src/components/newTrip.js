@@ -59,31 +59,32 @@ export default function NewTrip() {
   }
 
   return (
-    <div>
-      <h1>New Trip</h1>
-      <form>
-        <input
-          type="text"
-          name="tripName"
-          placeholder="Trip Name"
-          onChange={onChangeInput}
-        ></input>
-        <input
-          type="text"
-          name="tripSummary"
-          placeholder="Trip Summary"
-          onChange={onChangeInput}
-        ></input>
-        <button onClick={onClickSubmit}>Create Trip</button>
-      </form>
-      {errors ? <p>Error: {errors}</p> : null}
-      <br />
-      <br />
-      {/* <img
+    <div id="new-trip">
+      <div></div>
+      <div className="centered-block">
+        <h2>New Trip</h2>
+        <form>
+          <input
+            type="text"
+            name="tripName"
+            placeholder="Trip Name"
+            onChange={onChangeInput}
+          ></input>
+          <input
+            type="text"
+            name="tripSummary"
+            placeholder="Trip Summary"
+            onChange={onChangeInput}
+          ></input>
+          <button onClick={onClickSubmit}>Create Trip</button>
+        </form>
+        {errors ? <p>Error: {errors}</p> : null}
+
+        {/* <img
         src="/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--82835252ff04958682a3d074134ad1783611d8d6/20210430_133723_HDR.jpg"
         alt="none"
       /> */}
-      {/* <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+        {/* <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -95,6 +96,7 @@ export default function NewTrip() {
         </Marker>
       </MapContainer>
       <UploadAndDisplayImage /> */}
+      </div>
     </div>
   );
 }

@@ -8,14 +8,13 @@ export default function Header({ onLogout, user }) {
   }
 
   return (
-    <div>
+    <div id="header">
       <nav>
         {user ? (
           <>
-            <Link to="/new-trip">New Trip</Link> |{" "}
-            <Link to="/trips">My Trips</Link> |{" "}
-            <Link to="/my-profile">My Profile</Link> |{" "}
-            <button onClick={handleLogout}>Logout</button>
+            <Link to="/new-trip">New Trip</Link>
+            <Link to="/trips">My Trips</Link>
+            <Link to="/my-profile">My Profile</Link>
           </>
         ) : (
           <>
@@ -23,6 +22,10 @@ export default function Header({ onLogout, user }) {
           </>
         )}
       </nav>
+      <h1>TripIt</h1>
+      <div>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 }
