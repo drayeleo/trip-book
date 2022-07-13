@@ -85,7 +85,7 @@ body,
 
 #header nav {
   height: 75px;
-  width: 30%;
+  width: 33%;
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -137,7 +137,8 @@ body,
   flex-direction: column;
 } */
 
-#new-trip::before {
+#new-trip::before,
+#my-trips::before {
   content: "";
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
   /* background-size: cover; */
@@ -198,4 +199,10 @@ body,
   font-size: 14px;
   border: black 1.5px solid;
   background-color: rgb(243 243 243);
+}
+
+/******* My Trips Page *********/
+
+#my-trips > div {
+  position: relative;
 }

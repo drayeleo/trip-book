@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import TripCard from "./tripCard";
+
 export default function Trips() {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [trips, setTrips] = useState();
 
@@ -21,29 +23,20 @@ export default function Trips() {
     });
   }, []);
 
-  function handleViewTrip(tripId) {
-    navigate("/trips/" + tripId);
-  }
+  // function handleViewTrip(tripId) {
+  //   navigate("/trips/" + tripId);
+  // }
 
   function renderTrips() {
-    return trips.map((trip) => {
-      return (
-        <div key={trip.id}>
-          <h2>{trip.trip_name}</h2>
-          <h3>{trip.trip_summary}</h3>
-          {trip.locations && trip.locations.length > 0 ? (
-            <img src={trip.locations[0].image_url} width={"300px"} />
-          ) : null}
-          <button onClick={() => handleViewTrip(trip.id)}>View Trip</button>
-        </div>
-      );
-    });
+    return trips.map((trip) => <TripCard trip={trip} />);
   }
 
   return (
-    <div>
-      <h1>My Trips</h1>
-      {trips ? renderTrips() : null}
+    <div id="my-trips">
+      <div>
+        <h1>My Trips</h1>
+        {trips ? renderTrips() : null}
+      </div>
     </div>
   );
 }
