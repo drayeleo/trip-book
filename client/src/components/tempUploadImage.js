@@ -94,7 +94,7 @@ export default function TempUploadImage() {
 
   return (
     <div id="upload-images">
-      <h1>Upload and Display Images</h1>
+      <h2>Upload Images</h2>
       <div id="uploaded-images-container">{displayUploadedImage()}</div>
 
       <br />

@@ -98,6 +98,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 1px 1px #fff;
 }
 
 a {
@@ -113,6 +114,7 @@ a {
   margin: 0 20px 0 20px;
   text-decoration: none;
   color: black;
+  text-shadow: 1px 1px #fff;
 }
 
 #header > div {
@@ -218,6 +220,7 @@ a {
   left: 0px;
   opacity: 0.5;
   background-attachment: fixed;
+  margin-bottom: -100%;
   /* background-size: cover; */
 }
 
@@ -292,6 +295,7 @@ a {
   border-radius: 30px;
   margin: 30px;
   width: 320px;
+  border: black 1px solid;
 
   display: grid;
   grid-template-rows: 1fr 1fr auto 1fr;
@@ -302,6 +306,8 @@ a {
   width: 250px;
   height: 250px;
   object-fit: cover;
+  border: black 1px solid;
+  border-radius: 5px;
 }
 
 #trip-card button {
@@ -368,6 +374,7 @@ button {
   border-radius: 30px;
   margin: 30px;
   width: 320px;
+  border: black 1px solid;
 
   display: grid;
   /* grid-template-rows: 1fr 1fr auto 1fr; */
@@ -378,6 +385,14 @@ button {
   width: 250px;
   height: 250px;
   object-fit: cover;
+
+  border: black 1px solid;
+  border-radius: 5px;
+}
+
+#existing-image-card img {
+  border: black 1px solid;
+  border-radius: 5px;
 }
 
 #image-cards-container,

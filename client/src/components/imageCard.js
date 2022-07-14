@@ -24,7 +24,11 @@ export default function ImageCard({
     <div key={index} id="uploaded-image-card">
       <img alt="not found" width={"250px"} src={URL.createObjectURL(image)} />
 
-      <p>Coordinates: {`${latitude}, ${longitude}`}</p>
+      <p>
+        Coordinates:{" "}
+        {`${parseFloat(latitude).toFixed(6)}, 
+        ${parseFloat(longitude).toFixed(6)}`}
+      </p>
       <button
         onClick={() =>
           setSelectedImages((selectedImages) => {
