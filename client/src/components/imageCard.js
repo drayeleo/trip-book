@@ -21,9 +21,9 @@ export default function ImageCard({
   // }, []);
 
   return (
-    <div key={index}>
+    <div key={index} id="uploaded-image-card">
       <img alt="not found" width={"250px"} src={URL.createObjectURL(image)} />
-      <br />
+
       <p>Coordinates: {`${latitude}, ${longitude}`}</p>
       <button
         onClick={() =>
@@ -34,8 +34,6 @@ export default function ImageCard({
       >
         Remove
       </button>
-      <br />
-      <br />
     </div>
   );
 }

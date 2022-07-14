@@ -8,7 +8,7 @@ export default function ExistingImageCard({
   // setSelectedImages,
 }) {
   return (
-    <div key={index} id="image-card">
+    <div key={index} id="existing-image-card">
       <img alt="not found" width={"250px"} src={url} />
       {/* <br /> */}
       <p>Coordinates: {`${latitude}, ${longitude}`}</p>

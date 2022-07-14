@@ -55,30 +55,33 @@ export default function LoginPage() {
   }
 
   return (
-    <main>
-      <h2>Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          // style ={inputStyles}
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          // style ={inputStyles}
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit" className="submitbutton">
-          Login
-        </button>
-        {error ? <p>Error: {error}</p> : null}
-      </form>
-    </main>
+    <div id="login">
+      <div></div>
+      <div className="centered-block">
+        <h2>Login Page</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            // style ={inputStyles}
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            // style ={inputStyles}
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" className="submitbutton">
+            Login
+          </button>
+          {error ? <p>Error: {error}</p> : null}
+        </form>
+      </div>
+    </div>
   );
 }

@@ -126,6 +126,63 @@ body,
   background-color: rgb(243 243 243);
 }
 
+/******* Signup/Login Page *********/
+
+#signup-login {
+  display: grid;
+  grid-template-rows: 1fr auto 2fr;
+  justify-items: center;
+  height: 100%;
+}
+
+#signup-login .centered-block {
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+  position: relative;
+  border: black 1px solid;
+  width: 300px;
+}
+
+/******* Signup Page *********/
+
+#signup {
+  display: grid;
+  grid-template-rows: 1fr auto 2fr;
+  justify-items: center;
+  height: 100%;
+}
+
+#signup .centered-block {
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+  position: relative;
+  border: black 1px solid;
+  width: 300px;
+}
+
+/******* Login Page *********/
+
+#login {
+  display: grid;
+  grid-template-rows: 1fr auto 2fr;
+  justify-items: center;
+  height: 100%;
+}
+
+#login .centered-block {
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 30px;
+  position: relative;
+  border: black 1px solid;
+  width: 300px;
+}
+
 /******* New Trip Page *********/
 
 /* #new-trip-background {
@@ -172,10 +229,6 @@ body,
   height: 100%;
   /* flex-direction: column; */
 }
-
-/* #new-trip h2 {
-  height: 50%;
-} */
 
 #new-trip .centered-block {
   height: auto;
@@ -302,7 +355,8 @@ button {
   position: relative;
 }
 
-#image-card {
+#existing-image-card,
+#uploaded-image-card {
   background: white;
   padding: 10px;
   background-color: white;
@@ -321,7 +375,8 @@ button {
   object-fit: cover;
 }
 
-#image-cards-container {
+#image-cards-container,
+#uploaded-images-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

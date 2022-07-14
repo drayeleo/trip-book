@@ -71,64 +71,67 @@ export default function SignupPage() {
   }
 
   return (
-    <main>
-      <h2>Signup Page</h2>
-      <form onSubmit={handleSubmit}>
-        <label className="signupform" htmlFor="firstName"></label>
-        <input
-          // style={inputStyles}
-          type="text"
-          id="firstName"
-          name="firstName"
-          placeholder=" First Name"
-          value={formData.firstName}
-          onChange={(e) => handleFormInput(e)}
-        />
-        <label htmlFor="lastName"></label>
-        <input
-          // style={inputStyles}
-          type="text"
-          id="lastName"
-          name="lastName"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={(e) => handleFormInput(e)}
-        />
-        <label htmlFor="username"></label>
-        <input
-          // style={inputStyles}
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={(e) => handleFormInput(e)}
-        />
-        <label htmlFor="password"></label>
-        <input
-          // style={inputStyles}
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          placeholder="Password"
-          onChange={(e) => handleFormInput(e)}
-        />
-        <label htmlFor="passwordConfirmation"></label>
-        <input
-          // style={inputStyles}
-          type="password"
-          id="passwordConfirmation"
-          name="passwordConfirmation"
-          placeholder="Confirm Password"
-          value={formData.passwordConfirmation}
-          onChange={(e) => handleFormInput(e)}
-        />
-        <button type="submit" className="submitbutton">
-          Submit
-        </button>
-        {errors ? <p>Error: {errors}</p> : null}
-      </form>
-    </main>
+    <div id="signup">
+      <div></div>
+      <div className="centered-block">
+        <h2>Signup Page</h2>
+        <form onSubmit={handleSubmit}>
+          <label className="signupform" htmlFor="firstName"></label>
+          <input
+            // style={inputStyles}
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder=" First Name"
+            value={formData.firstName}
+            onChange={(e) => handleFormInput(e)}
+          />
+          <label htmlFor="lastName"></label>
+          <input
+            // style={inputStyles}
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            value={formData.lastName}
+            onChange={(e) => handleFormInput(e)}
+          />
+          <label htmlFor="username"></label>
+          <input
+            // style={inputStyles}
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={(e) => handleFormInput(e)}
+          />
+          <label htmlFor="password"></label>
+          <input
+            // style={inputStyles}
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            placeholder="Password"
+            onChange={(e) => handleFormInput(e)}
+          />
+          <label htmlFor="passwordConfirmation"></label>
+          <input
+            // style={inputStyles}
+            type="password"
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+            placeholder="Confirm Password"
+            value={formData.passwordConfirmation}
+            onChange={(e) => handleFormInput(e)}
+          />
+          <button type="submit" className="submitbutton">
+            Submit
+          </button>
+          {errors ? <p>Error: {errors}</p> : null}
+        </form>
+      </div>
+    </div>
   );
 }
