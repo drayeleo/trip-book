@@ -4,9 +4,9 @@ export default function TripCard({ trip }) {
   let navigate = useNavigate();
 
   return (
-    <div key={trip.id}>
+    <div id="trip-card">
       <h2>{trip.trip_name}</h2>
-      <h3>{trip.trip_summary}</h3>
+      <h5>{trip.trip_summary}</h5>
       {trip.locations && trip.locations.length > 0 ? (
         <img src={trip.locations[0].image_url} width={"300px"} />
       ) : null}

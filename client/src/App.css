@@ -55,9 +55,9 @@ body,
   height: 100%;
 }
 
-.App > div {
+/* .App > div {
   height: 100%;
-}
+} */
 
 .leaflet-container {
   width: 100%;
@@ -81,6 +81,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: left;
+  position: relative;
 }
 
 #header nav {
@@ -137,26 +138,38 @@ body,
   flex-direction: column;
 } */
 
-#new-trip::before,
-#my-trips::before {
+/* #new-trip::before,
+#my-trips::before  */
+.App::before {
   content: "";
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
-  /* background-size: cover; */
+  /* 
+  background: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg")
+    no-repeat center center fixed;
+  background-size: cover; 
+  */
   background-position: center;
   position: absolute;
-  top: 75px;
+  top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.6;
+  opacity: 0.5;
+  background-attachment: fixed;
+  /* background-size: cover; */
+}
+
+.App {
+  position: relative;
+  display: grid;
+  grid-template-rows: 75px auto;
 }
 
 #new-trip {
   display: grid;
   grid-template-rows: 1fr auto 2fr;
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
-  background-position: center; */
   justify-items: center;
+  height: 100%;
   /* flex-direction: column; */
 }
 
@@ -205,4 +218,111 @@ body,
 
 #my-trips > div {
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#trip-cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+#trip-card {
+  background: white;
+  padding: 10px;
+  background-color: white;
+  border-radius: 30px;
+  margin: 30px;
+  width: 320px;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr auto 1fr;
+  justify-items: center;
+}
+
+#trip-card img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+#trip-card button {
+  border-radius: 5px;
+  margin: 20px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  border: black 1.5px solid;
+  background-color: rgb(243 243 243);
+}
+
+/******* Trip Page *********/
+
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+  height: 100%;
+  /* position: relative; */ /*already covered in leaflet css? */
+}
+
+#trip {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 9fr;
+}
+
+#trip-header {
+  display: flex;
+  align-items: center;
+  /* padding: 10px; */
+  margin-left: 20px;
+}
+
+/* #trip-header button {
+  border-radius: 5px;
+  margin: 20px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  border: black 1.5px solid;
+  background-color: rgb(243 243 243);
+} */
+
+button {
+  border-radius: 5px;
+  margin: 20px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  border: black 1.5px solid;
+  background-color: rgb(243 243 243);
+}
+
+/******* Edit Trip Page *********/
+
+#edit-trip {
+  position: relative;
+}
+
+#image-card {
+  background: white;
+  padding: 10px;
+  background-color: white;
+  border-radius: 30px;
+  margin: 30px;
+  width: 320px;
+
+  display: grid;
+  /* grid-template-rows: 1fr 1fr auto 1fr; */
+  justify-items: center;
+}
+
+#trip-card img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+#image-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

@@ -28,14 +28,14 @@ export default function Trips() {
   // }
 
   function renderTrips() {
-    return trips.map((trip) => <TripCard trip={trip} />);
+    return trips.map((trip) => <TripCard trip={trip} key={trip.id} />);
   }
 
   return (
     <div id="my-trips">
       <div>
         <h1>My Trips</h1>
-        {trips ? renderTrips() : null}
+        <div id="trip-cards-container">{trips ? renderTrips() : null}</div>
       </div>
     </div>
   );

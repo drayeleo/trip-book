@@ -41,18 +41,18 @@ export default function Trip() {
     }
   }
 
-  function renderImages() {
-    return trip.locations.map((location) => {
-      return (
-        <img
-          key={location.image_url}
-          width={"250px"}
-          src={location.image_url}
-          alt="none"
-        />
-      );
-    });
-  }
+  // function renderImages() {
+  //   return trip.locations.map((location) => {
+  //     return (
+  //       <img
+  //         key={location.image_url}
+  //         width={"250px"}
+  //         src={location.image_url}
+  //         alt="none"
+  //       />
+  //     );
+  //   });
+  // }
 
   // render one marker for each image in "trips"
   function renderMarkers() {
@@ -71,10 +71,13 @@ export default function Trip() {
   if (trip) {
     return (
       <div id="trip">
-        <h2>{trip.trip_name}</h2>
-        <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
-          Edit Trip
-        </button>
+        <div id="trip-header">
+          <h2>{trip.trip_name}</h2>
+          <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
+            Edit Trip
+          </button>
+        </div>
+
         {/* {renderImages()} */}
         {trip ? (
           <MapContainer
