@@ -37,7 +37,7 @@ export default function EditTrip() {
 
   return (
     <div id="edit-trip">
-      <h1>Edit Trip</h1>
+      {/* <h1>Edit Trip</h1> */}
       <TempUploadImage />
       {trip && trip.locations[0] ? (
         <h2>Current Images:</h2>

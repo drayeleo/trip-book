@@ -100,6 +100,11 @@ body,
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 #header nav a {
   /* height: 75px; */
   /* display: flex;
@@ -381,3 +386,13 @@ button {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* #upload-images input {
+  border-radius: 5px;
+  margin: 20px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  border: black 1.5px solid;
+  background-color: rgb(243 243 243);
+} */

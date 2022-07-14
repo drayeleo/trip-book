@@ -22,7 +22,9 @@ export default function Header({ onLogout, user }) {
           </>
         )}
       </nav>
-      <h1>TripBook</h1>
+      <h1>
+        <a href="/">TripBook</a>
+      </h1>
       <div>
         <button onClick={handleLogout}>Logout</button>
       </div>
