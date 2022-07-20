@@ -337,7 +337,13 @@ a {
   display: flex;
   align-items: center;
   /* padding: 10px; */
+  /* margin-left: 20px;
+  margin-right: 20px; */
+}
+
+#trip-header h2 {
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* #trip-header button {

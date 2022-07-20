@@ -73,11 +73,11 @@ export default function Trip() {
       <div id="trip">
         <div id="trip-header">
           <h2>{trip.trip_name}</h2>
+          <h4>{trip.trip_summary}</h4>
           <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
             Edit Trip
           </button>
         </div>
-
         {/* {renderImages()} */}
         {trip ? (
           <MapContainer

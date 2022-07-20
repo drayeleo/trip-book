@@ -35,7 +35,9 @@ export default function Trips() {
     <div id="my-trips">
       <div>
         <h1>My Trips</h1>
-        <div id="trip-cards-container">{trips ? renderTrips() : null}</div>
+        <div id="trip-cards-container">
+          {trips && trips[0] ? renderTrips() : <h3>No trips yet!</h3>}
+        </div>
       </div>
     </div>
   );

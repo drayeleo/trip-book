@@ -14,7 +14,7 @@ export default function Header({ onLogout, user }) {
           <>
             <Link to="/new-trip">New Trip</Link>
             <Link to="/trips">My Trips</Link>
-            <Link to="/my-profile">My Profile</Link>
+            {/* <Link to="/my-profile">My Profile</Link> */}
           </>
         ) : (
           <>
