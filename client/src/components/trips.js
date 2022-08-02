@@ -28,7 +28,19 @@ export default function Trips() {
   // }
 
   function renderTrips() {
-    return trips.map((trip) => <TripCard trip={trip} key={trip.id} />);
+    if (trips) {
+      if (trips[0]) {
+        return trips.map((trip) => <TripCard trip={trip} key={trip.id} />);
+      } else {
+        return (
+          <h3>
+            You don't have any trips yet! Select "New Trip" to create one.
+          </h3>
+        );
+      }
+    } else {
+      return null;
+    }
   }
 
   return (
@@ -36,7 +48,8 @@ export default function Trips() {
       <div>
         <h1>My Trips</h1>
         <div id="trip-cards-container">
-          {trips && trips[0] ? renderTrips() : <h3>No trips yet!</h3>}
+          {/* {trips && trips[0] ? renderTrips() : <h3>No trips yet!</h3>} */}
+          {renderTrips()}
         </div>
       </div>
     </div>
