@@ -16,18 +16,13 @@ export default function Header({ onLogout, user }) {
             <Link to="/trips">My Trips</Link>
             {/* <Link to="/my-profile">My Profile</Link> */}
           </>
-        ) : (
-          <>
-            <Link to="/login">Log In</Link>
-          </>
-        )}
+        ) : null}
       </nav>
       <h1>
-        <a href="/">TripBook</a>
+        {/* <a href="/">TripBook</a> */}
+        <Link to="/">TripBook</Link>
       </h1>
-      <div>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
+      <div>{user ? <button onClick={handleLogout}>Logout</button> : null}</div>
     </div>
   );
 }
