@@ -1,4 +1,6 @@
-.App {
+/******* Template code *********/
+
+/* .App {
   text-align: center;
 }
 
@@ -35,14 +37,20 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 /******* My Additions *********/
 
-/* #trip {
-  position: relative;
-  height: 100%;
+/* html {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg")
+    no-repeat center center fixed; */
+/* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+/* background-position: center;
 } */
+
 html,
 body,
 #root {
@@ -53,11 +61,8 @@ body,
 .App {
   text-align: center;
   height: 100%;
+  background-color: #fcf8e8;
 }
-
-/* .App > div {
-  height: 100%;
-} */
 
 .leaflet-container {
   width: 100%;
@@ -66,6 +71,25 @@ body,
   top: 0;
   bottom: 0;
   width: 100%; */
+}
+
+h2 {
+  font-weight: lighter;
+}
+
+h4 {
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+h5 {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.centered-block,
+.trip-card {
+  background-color: #d1ebda;
 }
 
 /******* Header *********/
@@ -82,6 +106,7 @@ body,
   align-items: center;
   justify-content: left;
   position: relative;
+  background-color: #ecb390;
 }
 
 #header nav {
@@ -89,7 +114,7 @@ body,
   width: 33%;
   display: flex;
   align-items: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 #header h1 {
@@ -99,6 +124,7 @@ body,
   align-items: center;
   justify-content: center;
   text-shadow: 1px 1px #fff;
+  font-weight: normal;
 }
 
 a {
@@ -145,7 +171,7 @@ a {
 #signup-login .centered-block {
   height: auto;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   position: relative;
   border: black 1px solid;
@@ -164,7 +190,7 @@ a {
 #signup .centered-block {
   height: auto;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   position: relative;
   border: black 1px solid;
@@ -183,7 +209,7 @@ a {
 #login .centered-block {
   height: auto;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   position: relative;
   border: black 1px solid;
@@ -202,16 +228,10 @@ a {
   flex-direction: column;
 } */
 
-/* #new-trip::before,
-#my-trips::before  */
-.App::before {
+/* .App::before {
   content: "";
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
-  /* 
-  background: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg")
-    no-repeat center center fixed;
-  background-size: cover; 
-  */
+
   background-position: center;
   position: absolute;
   top: 0px;
@@ -221,8 +241,7 @@ a {
   opacity: 0.5;
   background-attachment: fixed;
   margin-bottom: -100%;
-  /* background-size: cover; */
-}
+} */
 
 .App {
   position: relative;
@@ -241,7 +260,7 @@ a {
 #new-trip .centered-block {
   height: auto;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   position: relative;
   border: black 1px solid;
@@ -286,12 +305,13 @@ a {
 #trip-cards-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-#trip-card {
-  background: white;
+.trip-card {
+  /* background: white; */
   padding: 10px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 30px;
   margin: 30px;
   width: 320px;
@@ -300,9 +320,20 @@ a {
   display: grid;
   grid-template-rows: 1fr 1fr auto 1fr;
   justify-items: center;
+
+  /* Hover behavior: */
+  box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
+    1px 3px 8px rgba(39, 44, 49, 0.03);
+  transition: all 0.5s ease; /* back to normal */
 }
 
-#trip-card img {
+.trip-card:hover {
+  box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+    1px 6px 12px rgba(39, 44, 49, 0.04);
+  transform: translate3D(0, -1px, 0) scale(1.03);
+}
+
+.trip-card img {
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -310,7 +341,7 @@ a {
   border-radius: 5px;
 }
 
-#trip-card button {
+.trip-card button {
   border-radius: 5px;
   margin: 20px;
   height: 30px;
@@ -387,7 +418,7 @@ button {
   justify-items: center;
 }
 
-#trip-card img {
+.trip-card img {
   width: 250px;
   height: 250px;
   object-fit: cover;
