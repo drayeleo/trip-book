@@ -1,55 +1,4 @@
-/******* Template code *********/
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 /******* My Additions *********/
-
-/* html {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg")
-    no-repeat center center fixed; */
-/* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-/* background-position: center;
-} */
 
 html,
 body,
@@ -67,22 +16,6 @@ body,
   width: 100%;
   background-color: #fcf8e8;
   text-align: center;
-
-  /* text-align: center;
-  height: 100%;
-  background-color: #fcf8e8;
-  position: relative;
-  display: grid;
-  grid-template-rows: 75px auto; */
-}
-
-.leaflet-container {
-  width: 100%;
-  height: 700px;
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%; */
 }
 
 h2 {
@@ -155,10 +88,6 @@ a {
 }
 
 #header nav a {
-  /* height: 75px; */
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   margin: 0 20px 0 20px;
   text-decoration: none;
   color: black;
@@ -171,15 +100,6 @@ a {
   justify-content: flex-end;
   padding: 20px;
 }
-
-/* #header div button {
-  border-radius: 5px;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  border: black 1.5px solid;
-  background-color: rgb(243 243 243);
-} */
 
 /******* Signup/Login Page *********/
 
@@ -240,31 +160,6 @@ a {
 
 /******* New Trip Page *********/
 
-/* #new-trip-background {
-  display: grid;
-  grid-template-rows: 1fr auto 2fr;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
-  background-position: center;
-  opacity: 0.6;
-  justify-items: center;
-  flex-direction: column;
-} */
-
-/* .App::before {
-  content: "";
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2d/Mount_Marcy_New_York_USGS_topo_map_1892.jpg");
-
-  background-position: center;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  opacity: 0.5;
-  background-attachment: fixed;
-  margin-bottom: -100%;
-} */
-
 #new-trip {
   display: grid;
   grid-template-rows: 1fr auto 2fr;
@@ -295,20 +190,7 @@ a {
   border-radius: 10px;
   text-align: center;
   height: 30px;
-  /* font-size: 14px;
-  font-weight: bold;
-  font-style: italic; */
 }
-
-/* .centered-block form button {
-  border-radius: 5px;
-  margin: 20px;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  border: black 1.5px solid;
-  background-color: rgb(243 243 243);
-} */
 
 /******* My Trips Page *********/
 
@@ -357,27 +239,18 @@ a {
   border-radius: 5px;
 }
 
-/* .trip-card button {
-  border-radius: 5px;
-  margin: 20px;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  border: black 1.5px solid;
-  background-color: rgb(243 243 243);
-} */
-
 /******* Trip Page *********/
 
 .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
   height: 100%;
+  width: 100%;
   /* position: relative; */ /*already covered in leaflet css? */
 }
 
 #trip {
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 9fr;
+  grid-template-rows: 60px auto;
 }
 
 #trip-header {
@@ -392,16 +265,6 @@ a {
   margin-left: 20px;
   margin-right: 20px;
 }
-
-/* #trip-header button {
-  border-radius: 5px;
-  margin: 20px;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  border: black 1.5px solid;
-  background-color: rgb(243 243 243);
-} */
 
 /******* Edit Trip Page *********/
 
@@ -444,13 +307,3 @@ a {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* #upload-images input {
-  border-radius: 5px;
-  margin: 20px;
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-  border: black 1.5px solid;
-  background-color: rgb(243 243 243);
-} */
