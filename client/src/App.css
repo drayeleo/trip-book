@@ -257,15 +257,16 @@ a {
   width: 100%;
 }
 
-#trip {
-  /* position: relative; */
+/* #trip {
+  position: relative;
   display: grid;
   grid-template-rows: 60px auto;
-}
+} */
 
 #trip-header {
   display: flex;
   align-items: center;
+  height: 60px;
   /* padding: 10px; */
   /* margin-left: 20px;
   margin-right: 20px; */
