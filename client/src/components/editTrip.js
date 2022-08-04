@@ -1,4 +1,3 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -41,9 +40,8 @@ export default function EditTrip() {
       <TempUploadImage />
       {trip && trip.locations[0] ? (
         <h2>Current Images:</h2>
-      ) : (
-        <h2>No images have been uploaded yet</h2>
-      )}
+      ) : // <h2>No images have been uploaded yet</h2>
+      null}
       <div id="image-cards-container">
         {trip && trip.locations[0] ? displayImages() : null}
       </div>

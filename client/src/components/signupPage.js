@@ -74,7 +74,7 @@ export default function SignupPage() {
     <div id="signup">
       <div></div>
       <div className="centered-block">
-        <h2>Signup Page</h2>
+        <h2>Sign Up for Trip Book!</h2>
         <form onSubmit={handleSubmit}>
           <label className="signupform" htmlFor="firstName"></label>
           <input

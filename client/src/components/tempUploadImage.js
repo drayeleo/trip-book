@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import exifr from "exifr";
 
@@ -95,8 +95,15 @@ export default function TempUploadImage() {
   return (
     <div id="upload-images">
       <h2>Upload Images</h2>
+      <h3>
+        Feel free to use images I've prepared{" "}
+        <a href="https://capstone-sample-photos.s3.us-west-1.amazonaws.com/yanaurco_photos.zip">
+          <u>
+            <strong>here</strong>
+          </u>
+        </a>
+      </h3>
       <div id="uploaded-images-container">{displayUploadedImage()}</div>
-
       <br />
 
       <br />
@@ -107,9 +114,10 @@ export default function TempUploadImage() {
         onChange={handleSelectPhotos}
       />
       <br />
-
       <br />
-      <button onClick={handlePhotoSubmit}>Submit</button>
+      {selectedImages[0] ? (
+        <button onClick={handlePhotoSubmit}>Submit</button>
+      ) : null}
     </div>
   );
 }
