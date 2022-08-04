@@ -4,7 +4,8 @@ html,
 body,
 #root {
   margin: 0px;
-  /* height: 100%; */
+  height: 100%;
+  width: 100%;
 }
 
 .App {
@@ -14,8 +15,12 @@ body,
   top: 0;
   bottom: 0;
   width: 100%;
-  background-color: #fcf8e8;
+  /* background-color: #fcf8e8; */
   text-align: center;
+}
+
+#content {
+  background-color: #fcf8e8;
 }
 
 h2 {
@@ -60,7 +65,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: left;
-  position: relative;
+  /* position: relative; */
   background-color: #ecb390;
 }
 
@@ -115,7 +120,7 @@ a {
   padding: 20px;
   /* background-color: white; */
   border-radius: 30px;
-  position: relative;
+  /* position: relative; */
   border: black 1px solid;
   width: 300px;
 }
@@ -134,7 +139,7 @@ a {
   padding: 20px;
   /* background-color: white; */
   border-radius: 30px;
-  position: relative;
+  /* position: relative; */
   border: black 1px solid;
   width: 300px;
 }
@@ -153,7 +158,7 @@ a {
   padding: 20px;
   /* background-color: white; */
   border-radius: 30px;
-  position: relative;
+  /* position: relative; */
   border: black 1px solid;
   width: 300px;
 }
@@ -173,7 +178,7 @@ a {
   padding: 20px;
   /* background-color: white; */
   border-radius: 30px;
-  position: relative;
+  /* position: relative; */
   border: black 1px solid;
 }
 
@@ -195,7 +200,7 @@ a {
 /******* My Trips Page *********/
 
 #my-trips > div {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
 }
@@ -240,15 +245,20 @@ a {
 }
 
 /******* Trip Page *********/
-
+#container {
+  position: absolute;
+  top: 135px;
+  bottom: 0;
+  width: 100%;
+}
 .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+  /* height: 700px; */
   height: 100%;
   width: 100%;
-  /* position: relative; */ /*already covered in leaflet css? */
 }
 
 #trip {
-  position: relative;
+  /* position: relative; */
   display: grid;
   grid-template-rows: 60px auto;
 }
@@ -268,9 +278,9 @@ a {
 
 /******* Edit Trip Page *********/
 
-#edit-trip {
+/* #edit-trip {
   position: relative;
-}
+} */
 
 #existing-image-card,
 #uploaded-image-card {

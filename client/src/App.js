@@ -28,7 +28,9 @@ export default function App() {
     return (
       <div className="App">
         <Header onLogout={onLogout} user={user} />
-        <Outlet context={[user, setUser]} />
+        <div id="content">
+          <Outlet context={[user, setUser]} />
+        </div>
       </div>
     );
   } else {
