@@ -47,7 +47,7 @@ h5 {
 
 button {
   border-radius: 5px;
-  margin: 20px;
+  /* margin: 20px; */
   height: 30px;
   /* font-weight: bold; */
   font-size: 14px;
@@ -273,17 +273,30 @@ a {
 } */
 
 #trip-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  padding: 0 20px;
   height: 60px;
+
+  /* display: flex;
+  align-items: center;
+  height: 60px; */
+
   /* padding: 10px; */
   /* margin-left: 20px;
   margin-right: 20px; */
 }
 
 #trip-header h2 {
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  margin: 0;
+  text-align: left;
+}
+
+#trip-header div {
+  text-align: right;
 }
 
 /******* Trip Page Image Popups  *********/
