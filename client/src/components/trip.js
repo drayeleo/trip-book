@@ -1,14 +1,14 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
 import MarkerClusterGroup from "@changey/react-leaflet-markercluster";
 // import "react-leaflet-markercluster/dist/styles.min.css";
 
 import ImageMarker from "./imageMarker";
+import TripHeader from "./tripHeader";
 
 export default function Trip() {
   let params = useParams();
-  let navigate = useNavigate();
 
   const [trip, setTrip] = useState();
   console.log(trip);
@@ -41,19 +41,6 @@ export default function Trip() {
     }
   }
 
-  // function renderImages() {
-  //   return trip.locations.map((location) => {
-  //     return (
-  //       <img
-  //         key={location.image_url}
-  //         width={"250px"}
-  //         src={location.image_url}
-  //         alt="none"
-  //       />
-  //     );
-  //   });
-  // }
-
   // render one marker for each image in "trips"
   function renderMarkers() {
     return trip.locations.map((location) => {
@@ -71,16 +58,7 @@ export default function Trip() {
   if (trip) {
     return (
       <div id="trip">
-        <div id="trip-header">
-          <h2>{trip.trip_name}</h2>
-          <h4>{trip.trip_summary}</h4>
-          <div>
-            <button onClick={() => navigate("/trips/" + trip.id + "/edit")}>
-              Edit Trip
-            </button>
-          </div>
-        </div>
-        {/* {renderImages()} */}
+        <TripHeader trip={trip} page="trip" />
         <div id="container">
           {trip ? (
             <MapContainer

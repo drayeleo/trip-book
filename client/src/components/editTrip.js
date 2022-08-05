@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import TempUploadImage from "./tempUploadImage";
 import ExistingImageCard from "./existingImageCard";
+import TripHeader from "./tripHeader";
 
 export default function EditTrip() {
   let params = useParams();
@@ -36,6 +37,10 @@ export default function EditTrip() {
 
   return (
     <div id="edit-trip">
+      {trip && trip.locations[0] ? (
+        <TripHeader trip={trip} page="edit" />
+      ) : null}
+      {/* <TripHeader trip={trip} page="edit" /> */}
       {/* <h1>Edit Trip</h1> */}
       <TempUploadImage />
       {trip && trip.locations[0] ? (
