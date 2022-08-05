@@ -23,6 +23,10 @@ body,
   background-color: #fcf8e8;
 }
 
+h1 {
+  font-weight: lighter;
+}
+
 h2 {
   font-weight: lighter;
 }
@@ -232,6 +236,7 @@ a {
   box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
     1px 3px 8px rgba(39, 44, 49, 0.03);
   transition: all 0.5s ease; /* back to normal */
+  cursor: pointer;
 }
 
 .trip-card:hover {
@@ -279,6 +284,26 @@ a {
 #trip-header h2 {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+/******* Trip Page Image Popups  *********/
+
+.leaflet-popup-content {
+  margin: 0;
+  line-height: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  padding: 0;
+}
+
+.leaflet-popup-content > img {
+  border-radius: 12px;
+  width: 301px;
+}
+
+.leaflet-popup-tip {
+  height: 0;
 }
 
 /******* Edit Trip Page *********/
