@@ -13,6 +13,7 @@ export default function App() {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user);
+          console.log(user);
         });
       }
       setSessionCheckComplete(true);
@@ -23,6 +24,8 @@ export default function App() {
     setUser(null);
     navigate("/");
   }
+
+  // console.log(user);
 
   if (sessionCheckComplete) {
     return (

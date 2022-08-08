@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 
 import TempUploadImage from "./tempUploadImage";
 import ExistingImageCard from "./existingImageCard";
@@ -7,19 +7,26 @@ import TripHeader from "./tripHeader";
 
 export default function EditTrip() {
   let params = useParams();
-  const [trip, setTrip] = useState();
+  // const [trip, setTrip] = useState();
 
-  console.log(trip);
+  // console.log(trip);
 
   // fetch specified trip, including image urls and coordinates
-  useEffect(() => {
-    fetch(`/trips/${params.tripId}`)
-      .then((response) => response.json())
-      .then((data) => setTrip(data))
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/trips/${params.tripId}`)
+  //     .then((response) => response.json())
+  //     .then((data) => setTrip(data))
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
+
+  const [user, setUser] = useOutletContext();
+
+  let trip;
+  if (user) {
+    trip = user.trips.find((trip) => trip.id === parseInt(params.tripId));
+  }
 
   function displayImages() {
     return trip.locations.map((location, index) => {

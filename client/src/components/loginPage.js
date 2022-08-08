@@ -1,20 +1,6 @@
 import { useState, useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 
-// const inputStyles = {
-//   padding: "10px",
-//   border: "3px solid #9198e5",
-//   boxShadow: "0px 0px 0px",
-//   color: "#3a46c2;",
-//   font_size: "18px",
-//   background_color: "#9198e5",
-//   outline: "10px",
-//   borderRadius: "10px",
-//   width: "20%",
-//   margin: "10px 0",
-
-// };
-
 export default function LoginPage() {
   let navigate = useNavigate();
 

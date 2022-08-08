@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useOutletContext } from "react-router-dom";
 import exifr from "exifr";
 
 import ImageCard from "./imageCard";
@@ -8,10 +8,17 @@ export default function TempUploadImage() {
   let params = useParams();
   let navigate = useNavigate();
 
+  const [user, setUser] = useOutletContext();
+
+  let trip;
+  if (user) {
+    trip = user.trips.find((trip) => trip.id === parseInt(params.tripId));
+  }
+
   const [selectedImages, setSelectedImages] = useState([]);
   // const [coords, setCoords] = useState([]);
 
-  console.log("selectedImages: ", selectedImages);
+  // console.log("selectedImages: ", selectedImages);
   // console.log("coords: ", coords);
 
   const handleSelectPhotos = async (event) => {
@@ -80,13 +87,21 @@ export default function TempUploadImage() {
     }
     // console.log(formData.values);
 
+    // post formData object to server
     fetch(`/trips/${params.tripId}/add-locations`, {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // update user state
+        let tempUser = { ...user };
+        tempUser.trips.find(
+          (trip) => trip.id === parseInt(params.tripId)
+        ).locations = data;
+        setUser(tempUser);
+
+        // navigate back to "trip" page
         navigate("/trips/" + params.tripId);
       })
       .catch((error) => console.log({ error: error }));
@@ -116,7 +131,7 @@ export default function TempUploadImage() {
       <br />
       <br />
       {selectedImages[0] ? (
-        <button onClick={handlePhotoSubmit}>Submit</button>
+        <button onClick={handlePhotoSubmit}>Save Photos</button>
       ) : null}
     </div>
   );
