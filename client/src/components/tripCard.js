@@ -10,7 +10,6 @@ export default function TripCard({ trip }) {
       {trip.locations && trip.locations.length > 0 ? (
         <img src={trip.locations[0].image_url} width={"300px"} alt="" />
       ) : null}
-      {/* <button onClick={() => navigate("/trips/" + trip.id)}>View Trip</button> */}
     </div>
   );
 }

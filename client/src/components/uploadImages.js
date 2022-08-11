@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
 import exifr from "exifr";
 
-import ImageCard from "./imageCard";
+import NewImageCard from "./newImageCard";
 
-export default function TempUploadImage() {
+export default function UploadImages() {
   let params = useParams();
   let navigate = useNavigate();
 
@@ -16,10 +16,6 @@ export default function TempUploadImage() {
   }
 
   const [selectedImages, setSelectedImages] = useState([]);
-  // const [coords, setCoords] = useState([]);
-
-  // console.log("selectedImages: ", selectedImages);
-  // console.log("coords: ", coords);
 
   const handleSelectPhotos = async (event) => {
     const imgArray = Array.from(event.target.files);
@@ -33,26 +29,19 @@ export default function TempUploadImage() {
       return { ...image, ...locationData };
     });
 
-    // console.log(unresolvedPromises);
-
     const results = await Promise.all(unresolvedPromises);
-    // setCoords(results);
     setSelectedImages(results);
-
-    // console.log("results: ", results);
   };
 
   function displayUploadedImage() {
     if (selectedImages[0]) {
       return selectedImages.map((image, index) => {
-        // console.log(exifr.gps(image));
         return (
-          <ImageCard
+          <NewImageCard
             key={index}
             image={image.file}
             latitude={image.latitude}
             longitude={image.longitude}
-            // coords={{ ...image }}
             index={index}
             setSelectedImages={setSelectedImages}
           />
@@ -64,7 +53,6 @@ export default function TempUploadImage() {
   }
 
   function handlePhotoSubmit() {
-    // console.log("submitted!");
     const formData = new FormData();
 
     selectedImages.forEach((image, index) => {
@@ -85,7 +73,6 @@ export default function TempUploadImage() {
     for (const value of formData.entries()) {
       console.log(value);
     }
-    // console.log(formData.values);
 
     // post formData object to server
     fetch(`/trips/${params.tripId}/add-locations`, {

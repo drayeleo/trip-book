@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
 import { useParams, useOutletContext } from "react-router-dom";
 
-import TempUploadImage from "./tempUploadImage";
+import UploadImages from "./uploadImages";
 import ExistingImageCard from "./existingImageCard";
 import TripHeader from "./tripHeader";
 
 export default function EditTrip() {
   let params = useParams();
-  // const [trip, setTrip] = useState();
-
-  // console.log(trip);
-
-  // fetch specified trip, including image urls and coordinates
-  // useEffect(() => {
-  //   fetch(`/trips/${params.tripId}`)
-  //     .then((response) => response.json())
-  //     .then((data) => setTrip(data))
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
-  // }, []);
 
   const [user, setUser] = useOutletContext();
 
@@ -44,19 +30,14 @@ export default function EditTrip() {
 
   return (
     <div id="edit-trip">
+      {trip ? <TripHeader trip={trip} page="edit" /> : null}
+      <UploadImages />
       {trip && trip.locations[0] ? (
-        <TripHeader trip={trip} page="edit" />
+        <>
+          <h2>Current Images:</h2>
+          <div id="image-cards-container">{displayImages()}</div>
+        </>
       ) : null}
-      {/* <TripHeader trip={trip} page="edit" /> */}
-      {/* <h1>Edit Trip</h1> */}
-      <TempUploadImage />
-      {trip && trip.locations[0] ? (
-        <h2>Current Images:</h2>
-      ) : // <h2>No images have been uploaded yet</h2>
-      null}
-      <div id="image-cards-container">
-        {trip && trip.locations[0] ? displayImages() : null}
-      </div>
     </div>
   );
 }

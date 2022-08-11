@@ -9,20 +9,10 @@ export default function SignupLogin() {
       <div className="centered-block">
         <h2>Signup/Login</h2>
         <h3>New? Make an account!</h3>
-
         <button onClick={() => navigate("/signup")}>Sign Up</button>
-
         <h3>Already signed up?</h3>
         <button onClick={() => navigate("/login")}>Log In</button>
       </div>
-
-      {/* <button
-        onClick={() => {
-          navigate("/login");
-        }}
-      >
-        Login
-      </button> */}
     </div>
   );
 }

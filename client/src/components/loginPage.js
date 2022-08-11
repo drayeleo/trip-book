@@ -11,7 +11,6 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (user) {
-      // console.log("navigating to homepage")
       navigate("/");
     }
   }, [user]);
@@ -32,7 +31,6 @@ export default function LoginPage() {
         });
       } else {
         res.json().then((json) => {
-          // setUser(null);
           setError(json.error);
           console.log("error: ", json.error);
         });
@@ -48,7 +46,6 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
-            // style ={inputStyles}
             type="text"
             id="username"
             value={username}
@@ -56,7 +53,6 @@ export default function LoginPage() {
           />
           <label htmlFor="password">Password:</label>
           <input
-            // style ={inputStyles}
             type="password"
             id="password"
             value={password}

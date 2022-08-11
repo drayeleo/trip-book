@@ -27,16 +27,16 @@ export default function App() {
 
   // console.log(user);
 
-  if (sessionCheckComplete) {
-    return (
-      <div className="App">
-        <Header onLogout={onLogout} user={user} />
-        <div id="content">
+  return (
+    <div className="App">
+      <Header onLogout={onLogout} user={user} />
+      <div id="content">
+        {sessionCheckComplete ? (
           <Outlet context={[user, setUser]} />
-        </div>
+        ) : (
+          <p>Loading</p>
+        )}
       </div>
-    );
-  } else {
-    return <p>Loading</p>; //maybe want to change this so header and background will at least load in the meantime
-  }
+    </div>
+  );
 }

@@ -1,20 +1,6 @@
 import { useState, useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 
-// const inputStyles = {
-//   padding: "10px",
-//   border: "3px solid #9198e5",
-//   boxShadow: "0px 0px 0px",
-//   color: "#3a46c2;",
-//   font_size: "18px",
-//   background_color: "#9198e5",
-//   outline: "10px",
-//   borderRadius: "10px",
-//   width: "20%",
-//   margin: "10px 0",
-
-// };
-
 export default function SignupPage() {
   let navigate = useNavigate();
 
@@ -31,7 +17,6 @@ export default function SignupPage() {
 
   useEffect(() => {
     if (user) {
-      // console.log("navigating to homepage")
       navigate("/");
     }
   }, [user]);
@@ -61,7 +46,6 @@ export default function SignupPage() {
         });
       } else {
         res.json().then((json) => {
-          // setUser(null);
           // console.log("json: ", json)
           setErrors(json.errors);
           console.log("errors: ", json.errors);
@@ -78,7 +62,6 @@ export default function SignupPage() {
         <form onSubmit={handleSubmit}>
           <label className="signupform" htmlFor="firstName"></label>
           <input
-            // style={inputStyles}
             type="text"
             id="firstName"
             name="firstName"
@@ -88,7 +71,6 @@ export default function SignupPage() {
           />
           <label htmlFor="lastName"></label>
           <input
-            // style={inputStyles}
             type="text"
             id="lastName"
             name="lastName"
@@ -98,7 +80,6 @@ export default function SignupPage() {
           />
           <label htmlFor="username"></label>
           <input
-            // style={inputStyles}
             type="text"
             id="username"
             name="username"
@@ -108,7 +89,6 @@ export default function SignupPage() {
           />
           <label htmlFor="password"></label>
           <input
-            // style={inputStyles}
             type="password"
             id="password"
             name="password"
@@ -118,7 +98,6 @@ export default function SignupPage() {
           />
           <label htmlFor="passwordConfirmation"></label>
           <input
-            // style={inputStyles}
             type="password"
             id="passwordConfirmation"
             name="passwordConfirmation"

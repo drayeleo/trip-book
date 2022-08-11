@@ -10,4 +10,3 @@ export default function TripContainer() {
     </div>
   );
 }
-//context={[user, setUser]}
