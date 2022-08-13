@@ -4,7 +4,7 @@ import exifr from "exifr";
 
 import NewImageCard from "./newImageCard";
 
-export default function UploadImages() {
+export default function UploadImages({ uploading, setUploading }) {
   let params = useParams();
   let navigate = useNavigate();
 
@@ -53,6 +53,11 @@ export default function UploadImages() {
   }
 
   function handlePhotoSubmit() {
+    setUploading(true);
+
+    // console.log("uploading: ", uploading);
+    // debugger;
+
     const formData = new FormData();
 
     selectedImages.forEach((image, index) => {
@@ -70,9 +75,9 @@ export default function UploadImages() {
     // should generate a single object for each image, similar to the frontend format.
     // this would allow for simpler code in trips_controller.rb but might require some finagling
 
-    for (const value of formData.entries()) {
-      console.log(value);
-    }
+    // for (const value of formData.entries()) {
+    //   console.log(value);
+    // }
 
     // post formData object to server
     fetch(`/trips/${params.tripId}/add-locations`, {
@@ -87,6 +92,8 @@ export default function UploadImages() {
           (trip) => trip.id === parseInt(params.tripId)
         ).locations = data;
         setUser(tempUser);
+
+        setUploading(false); // this may not be necessary?
 
         // navigate back to "trip" page
         navigate("/trips/" + params.tripId);

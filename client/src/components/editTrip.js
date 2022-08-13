@@ -1,13 +1,17 @@
 import { useParams, useOutletContext } from "react-router-dom";
+import { useState } from "react";
 
 import UploadImages from "./uploadImages";
 import ExistingImageCard from "./existingImageCard";
 import TripHeader from "./tripHeader";
+import LoadingSpinner from "./loadingSpinner";
 
 export default function EditTrip() {
   let params = useParams();
 
   const [user, setUser] = useOutletContext();
+
+  const [uploading, setUploading] = useState(false);
 
   let trip;
   if (user) {
@@ -31,13 +35,14 @@ export default function EditTrip() {
   return (
     <div id="edit-trip">
       {trip ? <TripHeader trip={trip} page="edit" /> : null}
-      <UploadImages />
+      <UploadImages uploading={uploading} setUploading={setUploading} />
       {trip && trip.locations[0] ? (
         <>
           <h2>Current Images:</h2>
           <div id="image-cards-container">{displayImages()}</div>
         </>
       ) : null}
+      {uploading ? <LoadingSpinner /> : null}
     </div>
   );
 }
