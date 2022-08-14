@@ -13,10 +13,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  # post "/user-image", to: "users#add_images"
-
-  # post "/trips/:id/add-images", to: "trips#add_images"
-
   post "/trips/:trip_id/add-locations", to: "trips#add_locations"
 
   # ^^^ Define all API routes above ^^^

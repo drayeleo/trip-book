@@ -17,24 +17,14 @@ class TripsController < ApplicationController
     render json: trip
   end
 
-  # def add_images
-  #   trip = Trip.find_by(id: params[:id])
-  #   trip.images.attach(params[:images])
-  #   render json: trip, status: :accepted
-  # end
-
   def add_locations
     trip = Trip.find_by(id: params[:trip_id])
 
-    # puts "in add_locations"
-
     for key in params.keys
-      # puts "in for loop"
       if key.include? "file"
         i = key.split[0]
         lat = params[:"#{i} lat"]
         long = params[:"#{i} long"]
-        # loop through params[:images], each |image| image[:file], image[:latitude]
 
         location =
           Location.create!(
@@ -43,14 +33,10 @@ class TripsController < ApplicationController
             trip: Trip.find_by(id: params[:trip_id])
           )
         location.image.attach(params[:"#{i} file"])
-        # puts location
-        # debugger
       end
     end
 
     render json: trip.locations, status: :accepted
-
-    # debugger
   end
 
   private
