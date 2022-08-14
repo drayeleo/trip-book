@@ -20,7 +20,7 @@ export default function NewImageCard({
           })
         }
       >
-        Remove
+        Remove Photo
       </button>
     </div>
   );

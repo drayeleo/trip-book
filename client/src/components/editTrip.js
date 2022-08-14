@@ -13,12 +13,17 @@ export default function EditTrip() {
 
   const [uploading, setUploading] = useState(false);
 
+  let tripIndex = user.trips.findIndex(
+    (trip) => trip.id === parseInt(params.tripId)
+  );
+  // need to change trip below to tripIndex state to eliminate duplication of data
+
   let trip;
   if (user) {
     trip = user.trips.find((trip) => trip.id === parseInt(params.tripId));
   }
 
-  function displayImages() {
+  function displayExistingImages() {
     return trip.locations.map((location, index) => {
       return (
         <ExistingImageCard
@@ -27,8 +32,30 @@ export default function EditTrip() {
           latitude={location.latitude}
           longitude={location.longitude}
           index={index}
+          deleteImage={deleteImage}
         />
       );
+    });
+  }
+
+  function deleteImage(locationIndex) {
+    console.log("running 'deleteImage' in editTrip");
+
+    let locationId = user.trips[tripIndex].locations[locationIndex].id;
+
+    fetch(`/locations/${locationId}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        // delete from state
+        let tempUser = { ...user };
+        tempUser.trips[tripIndex].locations.splice(locationIndex, 1);
+        setUser(tempUser);
+      } else {
+        res.json().then((json) => {
+          console.log("error: ", json);
+        });
+      }
     });
   }
 
@@ -39,7 +66,7 @@ export default function EditTrip() {
       {trip && trip.locations[0] ? (
         <>
           <h2>Current Images:</h2>
-          <div id="image-cards-container">{displayImages()}</div>
+          <div id="image-cards-container">{displayExistingImages()}</div>
         </>
       ) : null}
       {uploading ? <LoadingSpinner /> : null}
